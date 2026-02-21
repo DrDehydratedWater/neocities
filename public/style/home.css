@@ -1,8 +1,4 @@
-.title {
-  color: white;
-  font-size: 120px;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 .overlay {
   position: fixed;
   display: block;
@@ -13,7 +9,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: white;
+  background-color: black;
   z-index: 1;
   cursor: pointer;
   pointer-events: none;
@@ -21,6 +17,12 @@
 }
 
 .terminal {
+  filter: contrast(110%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: move;
   width: 1100px;
   aspect-ratio: 1200 / 1000;
   z-index: 0;
@@ -28,14 +30,13 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
+  position: absolute;
 }
 
 .terminal-output {
+  font-family: "Jersey 10";
   padding: 40px;
-  font-size: 28px;
+  font-size: 34px;
   flex: 0.55;
   overflow-y: scroll;
   width: 80%;
@@ -44,12 +45,13 @@
 }
 
 .terminal-input {
+  font-family: "Jersey 10";
   resize: none;
   overflow: hidden;
   padding: 40px;
   margin-bottom: -180px;
   color: green;
-  font-size: 28px;
+  font-size: 34px;
   width: 80%;
   border-radius: 0px;
   border: 0px solid black;
@@ -62,21 +64,9 @@
   outline: none;
 }
 
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.main {
-  font-size: 1vw;
-}
-
-.about {
-  color: white;
-  font-size: 18px;
-  margin: 100px;
+.terminal:hover {
+  animation: pulse 1.5s ease-in-out infinite alternate;
+  outline: none;
 }
 
 .glow {
@@ -85,11 +75,18 @@
 }
 
 @keyframes glow {
-  from {
+  to {
     text-shadow: 0 0 10px #6bfe26, 0 0 20px #9bfc24, 0 0 30px #7dcf30;
   }
-  to {
+  from {
     text-shadow: 0 0 20px #537a34, 0 0 30px #86a635, 0 0 40px #616625;
+  }
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(101%, 101%);
+    filter: contrast(130%);
   }
 }
 

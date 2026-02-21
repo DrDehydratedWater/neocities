@@ -1,4 +1,5 @@
-import { Terminal } from './lib/terminal.js';
+import { Terminal } from "./lib/terminal.js";
+import { Draggable } from "./lib/draggable.js"
 
 let terminal = new Terminal(
   document.querySelector(".terminal"), {
@@ -25,3 +26,5 @@ let terminal = new Terminal(
     }
   }
 })
+
+let draggable = new Draggable(document.querySelector(".terminal"))
