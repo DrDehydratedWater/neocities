@@ -1,18 +1,19 @@
 .title {
-  font-size: 500%;
+  color: white;
+  font-size: 120px;
 }
 
 .overlay {
   position: fixed;
   display: block;
   opacity: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: black;
+  background-color: white;
   z-index: 1;
   cursor: pointer;
   pointer-events: none;
@@ -20,10 +21,10 @@
 }
 
 .terminal {
-  width: 50%;
-  height: 50%;
+  width: 1100px;
+  aspect-ratio: 1200 / 1000;
   z-index: 0;
-  background-image: url(../frame_test.png);
+  background-image: url(../terminal_compressed.jpg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -33,26 +34,32 @@
 }
 
 .terminal-output {
-  font-size: 100%;;
-  flex: 0.5;
-  overflow-y: auto;
-  width: 50%;
+  padding: 40px;
+  font-size: 28px;
+  flex: 0.55;
+  overflow-y: scroll;
+  width: 80%;
+  color: green;
+  flex-wrap: wrap;
 }
 
 .terminal-input {
-  margin-bottom: 4%;
-  font-size: 100%;
-  width: 50%;
+  resize: none;
+  overflow: hidden;
+  padding: 40px;
+  margin-bottom: -180px;
+  color: green;
+  font-size: 28px;
+  width: 80%;
   border-radius: 0px;
-  border: 1% solid black;
+  border: 0px solid black;
   flex-shrink: 0;          /* prevents input from shrinking */
+  background-color: transparent;
 }
 
 .terminal-input:focus,
 .terminal-input:active {
   outline: none;
-  transform: translateY(-20%);
-  filter: drop-shadow(20% 20% black);
 }
 
 .content {
@@ -63,17 +70,30 @@
 }
 
 .main {
-  height: 100%;
   font-size: 1vw;
 }
 
 .about {
-  margin: 5%;
+  color: white;
+  font-size: 18px;
+  margin: 100px;
+}
+
+.glow {
+  color: #77ff00;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #6bfe26, 0 0 20px #9bfc24, 0 0 30px #7dcf30;
+  }
+  to {
+    text-shadow: 0 0 20px #537a34, 0 0 30px #86a635, 0 0 40px #616625;
+  }
 }
 
 body {
-  background-color: white;
+  background-color: black;
   margin: 0;
-  width: 100vw;
-  height: 100vh;
 }

@@ -15,17 +15,18 @@ export class Terminal {
   init() {
     this.commands["boot"].call(this);
     this.input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      this.output.innerHTML += this.input.value + "<br>";
-      if (this.commands[this.input.value]) {
-        this.commands[this.input.value].call(this);
-      } else {
-        this.commands["invalid"].call(this);
+      if (e.key === "Enter") {
+        e.preventDefault();
+        this.output.innerHTML += this.input.value + "<br>";
+        if (this.commands[this.input.value]) {
+          this.commands[this.input.value].call(this);
+        } else {
+          this.commands["invalid"].call(this);
+        }
+        
+        this.output.scrollTop = this.output.scrollHeight;
+        this.input.value = "";
       }
-      
-      this.output.scrollTop = this.output.scrollHeight;
-      this.input.value = "";
-    }
     });
   }
   
