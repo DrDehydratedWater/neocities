@@ -1,8 +1,11 @@
 export class Terminal {
   constructor(container, options) {
+    this.argv = []
+
+
     this.container = container;
-    this.output = container.querySelector(".terminal-output");
-    this.input = container.querySelector(".terminal-input");
+    this.output = document.getElementById("terminal_output");
+    this.input = document.getElementById("terminal_input");
 
     this.commands = options.commands || {};
     this.onUnknownCommand =
@@ -17,9 +20,10 @@ export class Terminal {
     this.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        this.output.innerHTML += this.input.value + "<br>";
-        if (this.commands[this.input.value]) {
-          this.commands[this.input.value].call(this);
+        this.argv = this.input.value.split(" ");
+        
+        if (this.commands[this.argv[0]]) {
+          this.commands[this.argv[0]].call(this);
         } else {
           this.commands["invalid"].call(this);
         }

@@ -1,5 +1,3 @@
-const div = document.getElementById("myDiv");
-
 export class Draggable {
   constructor(element) {
     this.element = element;
