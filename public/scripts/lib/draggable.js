@@ -11,6 +11,7 @@ export class Draggable {
 
     this.element.addEventListener("mousedown", (e) => {
       isDragging = true;
+      this.element.className = "dragging " + this.element.className;
       offsetX = e.clientX - this.element.offsetLeft;
       offsetY = e.clientY - this.element.offsetTop;
       this.element.style.cursor = "grabbing";
@@ -25,6 +26,7 @@ export class Draggable {
 
     document.addEventListener("mouseup", () => {
       isDragging = false;
+      this.element.classList.remove("dragging");
       this.element.style.cursor = "grab";
     });
   }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 .overlay {
   position: fixed;
   opacity: 0;
@@ -11,70 +12,83 @@
   transition: opacity 3s;
 }
 
-.terminal_dark {
+.terminal {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   cursor: move;
   width: 1000px;
+  font-size: 1000px;
   aspect-ratio: 1200 / 1000;
   z-index: 0;
-  border: 3px solid white;
-  background-color: black;
-  filter: drop-shadow(15px 15px white);
   position: absolute;
 }
 
-.terminal_dark:hover {
+.terminal:hover {
   outline: none;
 }
 
-.terminal_output_dark {
-  color: white;
+.terminal_output {
   font-family: "Jersey 10";
   padding: 40px;
-  font-size: 34px;
-  flex: 0.8;
-  overflow-y: hidden;
+  font-size: 3.4%;
+  overflow-y: scroll;
   width: 80%;
-  border: 2px solid white;
   flex-wrap: wrap;
+}
+
+.terminal_input {
+  font-family: "Jersey 10";
+  padding: 40px;
+  font-size: 3.4%;
+  width: 80%;
+}
+
+.terminal_input:focus,
+.terminal_input:active {
+  outline: none;
+}
+
+.terminal_dark {
+  transform: rotate(0deg);
+  transition: rotate 1.5s;
+  border: 3px solid lightgrey;
+  background-color: black;
+  filter: drop-shadow(15px 15px grey);
+}
+
+.terminal_dark.dragging {
+  animation: drag 1.5s ease-in-out infinite alternate;
+}
+
+.terminal_output_dark {
+  box-shadow: inset 0.2em 0.2em 0 grey;
+  color: white;
+  flex: 0.8;
+  border: 2px solid lightgrey;
 }
 
 .terminal_input_dark {
   color: white;
-  font-family: "Jersey 10";
-  padding: 40px;
   padding-bottom: 10px;
   margin-top: 20px;
   margin-bottom: -20px;
-  font-size: 34px;
-  width: 80%;
-  border: 2px solid white;
-  background-color: transparent;
+  border: 2px solid lightgrey;
+  background-color: black;
 }
 
 .terminal_input_dark:focus,
 .terminal_input_dark:active {
-  outline: none;
+  filter: drop-shadow(5px 5px grey);
 }
 
 .terminal_fleshy {
   filter: contrast(110%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  cursor: move;
-  width: 1000px;
-  aspect-ratio: 1200 / 1000;
-  z-index: 0;
   background-image: url(../terminal_compressed.jpg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  position: absolute;
 }
 
 .terminal_fleshy:hover {
@@ -85,30 +99,16 @@
 .terminal_output_fleshy {
   color: #77ff00;
   animation: glow 1s ease-in-out infinite alternate;
-  font-family: "Jersey 10";
-  padding: 40px;
-  font-size: 34px;
   flex: 0.55;
-  overflow-y: hidden;
-  width: 80%;
-  flex-wrap: wrap;
 }
 
 .terminal_input_fleshy {
   color: #77ff00;
   animation: glow 1s ease-in-out infinite alternate;
   font-family: "Jersey 10";
-  padding: 40px;
   margin-bottom: -165px;
-  font-size: 34px;
-  width: 80%;
   border: none;
   background-color: transparent;
-}
-
-.terminal_input_fleshy:focus,
-.terminal_input_fleshy:active {
-  outline: none;
 }
 
 .glow {
@@ -129,6 +129,18 @@
   to {
     transform: scale(101%, 101%);
     filter: contrast(130%);
+  }
+}
+
+@keyframes drag {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
   }
 }
 
