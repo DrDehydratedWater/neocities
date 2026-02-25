@@ -4,15 +4,27 @@ import { Draggable } from "./lib/draggable.js"
 const themes = [
   "fleshy",
   "dark",
+  "light"
 ]
+
+function list_themes() {
+  for (let theme of themes) {
+    this.println(theme);
+  }
+  return;
+}
 
 let terminal = new Terminal(
   document.getElementById("terminal"), 
   function all() {
-    this.println("");
+    if (this.output.innerHTML == "") {
+      this.println("<i>[" + this.argv[0] + "]</i>");
+      return;
+    }
+    this.println("-------------------------------------------------------------<br><i>[" + this.argv[0] + "]</i>")
   },
   function invalid() {
-    this.println("[" + this.argv[0] + "] is not a valid command")
+    this.println("^^^ is not a valid command")
   },
   function boot() {
     this.println("WELCOME TO THE MACHINE USER");
@@ -39,17 +51,10 @@ let terminal = new Terminal(
         overlay.style.opacity = 1;
       },
 
-      list_themes: function() {
-        for (let theme of themes) {
-          this.println(theme);
-        }
-        return;
-      },
-
       theme: function() {
         if (this.argv.length < 2) {
           this.println("No theme specified, themes are: ");
-          this.commands["list_themes"].call(this);
+          list_themes.call(this);
           return;
         }
 
@@ -57,11 +62,11 @@ let terminal = new Terminal(
 
         if (!themes.includes(new_theme)) {
           this.println("Theme does not exist, themes are:");
-          this.commands["list_themes"].call(this)
+          list_themes.call(this)
           return;
         }
 
-        for (let el of [this.container, this.output, this.input]) {
+        for (let el of [this.container, this.output, this.input, document.body]) {
           let classes = [...el.classList];
           classes.pop();
           classes.push(el.id + "_" + new_theme);
@@ -97,6 +102,20 @@ let terminal = new Terminal(
         }
         this.container.style.width = (parseInt(window.getComputedStyle(this.container).width, 10) - parseInt(this.argv[1])) + 'px';
         this.container.style.fontSize = (parseInt(window.getComputedStyle(this.container).fontSize, 10) - parseInt(this.argv[1])) + 'px';
+      },
+
+      about: function() {
+        this.println(
+          `
+          I am happy to have you on my site, I am kind of a jack of all trades.
+          E. g. I am incompetent.
+          <br>Hobbies are:
+          <br>- Low level programming (asm, cpp, rust)
+          <br>- Drawing (pixel art too!)
+          <br>- Music (mostly midi sequencing)
+          <br>- Video games (i gotta turn off my brain sometimes, okay?)
+          `
+        )
       }
     }
   }

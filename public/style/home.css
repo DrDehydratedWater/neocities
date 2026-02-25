@@ -55,7 +55,7 @@
   transition: rotate 1.5s;
   border: 3px solid lightgrey;
   background-color: black;
-  filter: drop-shadow(15px 15px grey);
+  filter: drop-shadow(15px 15px lightgrey);
 }
 
 .terminal_dark.dragging {
@@ -63,14 +63,15 @@
 }
 
 .terminal_output_dark {
-  box-shadow: inset 0.2em 0.2em 0 grey;
-  color: white;
+  box-shadow: inset 0.2em 0.2em 0 lightgrey;
+  color: lightgrey;
   flex: 0.8;
   border: 2px solid lightgrey;
 }
 
 .terminal_input_dark {
-  color: white;
+  box-shadow: inset 0.2em 0.2em 0 lightgrey;
+  color: lightgrey;
   padding-bottom: 10px;
   margin-top: 20px;
   margin-bottom: -20px;
@@ -78,14 +79,53 @@
   background-color: black;
 }
 
-.terminal_input_dark:focus,
+/*.terminal_input_dark:focus,
 .terminal_input_dark:active {
-  filter: drop-shadow(5px 5px grey);
+  
+}*/
+
+.terminal_light {
+  transform: rotate(0deg);
+  transition: rotate 1.5s;
+  border: 3px solid black;
+  background-color: lightgrey;
+  filter: drop-shadow(15px 15px grey);
 }
+
+.terminal_light.dragging {
+  animation: drag 1.5s ease-in-out infinite alternate;
+}
+
+.terminal_output_light {
+  box-shadow: inset 0.2em 0.2em 0 grey;
+  color: black;
+  text-shadow: 2px 0 lightgrey, -2px 0 lightgrey, 0 2px lightgrey, 0 -2px lightgrey,
+               1px 1px lightgrey, -1px -1px lightgrey, 1px -1px lightgrey, -1px 1px lightgrey;
+  flex: 0.8;
+  background-color: darkgrey;
+  border: 2px solid black;
+}
+
+.terminal_input_light {
+  box-shadow: inset 0.2em 0.2em 0 grey;
+  color: black;
+  text-shadow: 2px 0 lightgrey, -2px 0 lightgrey, 0 2px lightgrey, 0 -2px lightgrey,
+               1px 1px lightgrey, -1px -1px lightgrey, 1px -1px lightgrey, -1px 1px lightgrey;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  border: 2px solid black;
+  background-color: darkgrey;
+}
+
+/*.terminal_input_light:focus,
+.terminal_input_light:active {
+
+}*/
 
 .terminal_fleshy {
   filter: contrast(110%);
-  background-image: url(../terminal_compressed.jpg);
+  background-image: url(../resources/terminal_compressed.jpg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -144,6 +184,14 @@
   }
 }
 
-body {
+.body_dark {
+  background-color: black;
+}
+
+.body_light {
+  background-color: white;
+}
+
+.body_fleshy {
   background-color: black;
 }
