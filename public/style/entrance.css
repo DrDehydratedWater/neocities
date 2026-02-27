@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.door {
+  width: 100%;
+  z-index: -1;
+}
+
+.door_button {
+  position: absolute;
+  left: 47%;
+  bottom: -70%;
+  width: 120px;
+  height: 200px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 240px;
+  color: #FAE2BF;
+  text-shadow: 0.5em 0 #4DA4FC, -0.5em 0 #4DA4FC, 0 0.5em #4DA4FC, 0 -0.5em #4DA4FC,
+               1px 1px #4DA4FC, -1px -1px #4DA4FC, 1px -1px #4DA4FC, -1px 1px #4DA4FC;
+  position: absolute;
+  left: 15%;
+  top: -15%;
+}
+
+.enter_text {
+  font-size: 48px;
+  color: #FAE2BF;
+  text-shadow: 0.5em 0 #4DA4FC, -0.5em 0 #4DA4FC, 0 0.5em #4DA4FC, 0 -0.5em #4DA4FC,
+               1px 1px #4DA4FC, -1px -1px #4DA4FC, 1px -1px #4DA4FC, -1px 1px #4DA4FC;
+  position: absolute;
+  left: 75%;
+  top: 100%;
+}
+
+.blink {
+  rotate: -3deg;
+  position: absolute;
+  left: 49.5%;
+  bottom: -56%;
+}
