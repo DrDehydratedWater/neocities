@@ -1,14 +1,13 @@
 .computer {
   width: 100%;
-  height: 100%;
 }
 
 .computer_button {
   position: absolute;
-  rotate: 2deg;
+  rotate: 2.5deg;
   left: 14%;
-  top: 8%;
-  height: 40%;
-  width: 70%;
+  top: 19%;
+  height: 79.5%;
+  width: 68%;
   background-color: transparent;
 }
