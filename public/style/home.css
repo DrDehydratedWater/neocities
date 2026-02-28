@@ -13,12 +13,8 @@
 }
 
 .terminal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   cursor: move;
-  width: 1000px;
+  width: 900px;
   font-size: 1000px;
   aspect-ratio: 1200 / 1000;
   z-index: 0;
@@ -30,15 +26,21 @@
 }
 
 .terminal_output {
+  position: relative;
   font-family: "Jersey 10";
   padding: 40px;
   font-size: 3.4%;
-  overflow-y: scroll;
-  width: 80%;
-  flex-wrap: wrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: scroll;
+}
+
+.terminal_output::-webkit-scrollbar {
+  display: none;
 }
 
 .terminal_input {
+  position: relative;
   font-family: "Jersey 10";
   padding: 40px;
   font-size: 3.4%;
@@ -50,127 +52,47 @@
   outline: none;
 }
 
-.terminal_dark {
-  transform: rotate(0deg);
-  transition: rotate 1.5s;
-  border: 3px solid lightgrey;
-  background-color: black;
-  filter: drop-shadow(15px 15px lightgrey);
-}
-
-.terminal_dark.dragging {
-  animation: drag 1.5s ease-in-out infinite alternate;
-}
-
-.terminal_output_dark {
-  box-shadow: inset 0.2em 0.2em 0 lightgrey;
-  color: lightgrey;
-  flex: 0.8;
-  border: 2px solid lightgrey;
-}
-
-.terminal_input_dark {
-  box-shadow: inset 0.2em 0.2em 0 lightgrey;
-  color: lightgrey;
-  padding-bottom: 10px;
-  margin-top: 20px;
-  margin-bottom: -20px;
-  border: 2px solid lightgrey;
-  background-color: black;
-}
-
-/*.terminal_input_dark:focus,
-.terminal_input_dark:active {
-  
-}*/
-
 .terminal_light {
-  transform: rotate(0deg);
-  transition: rotate 1.5s;
-  border: 3px solid black;
-  background-color: lightgrey;
-  filter: drop-shadow(15px 15px grey);
-}
-
-.terminal_light.dragging {
-  animation: drag 1.5s ease-in-out infinite alternate;
-}
-
-.terminal_output_light {
-  box-shadow: inset 0.2em 0.2em 0 grey;
-  color: black;
-  text-shadow: 2px 0 lightgrey, -2px 0 lightgrey, 0 2px lightgrey, 0 -2px lightgrey,
-               1px 1px lightgrey, -1px -1px lightgrey, 1px -1px lightgrey, -1px 1px lightgrey;
-  flex: 0.8;
-  background-color: darkgrey;
-  border: 2px solid black;
-}
-
-.terminal_input_light {
-  box-shadow: inset 0.2em 0.2em 0 grey;
-  color: black;
-  text-shadow: 2px 0 lightgrey, -2px 0 lightgrey, 0 2px lightgrey, 0 -2px lightgrey,
-               1px 1px lightgrey, -1px -1px lightgrey, 1px -1px lightgrey, -1px 1px lightgrey;
-  padding-bottom: 10px;
-  margin-top: 20px;
-  margin-bottom: -20px;
-  border: 2px solid black;
-  background-color: darkgrey;
-}
-
-/*.terminal_input_light:focus,
-.terminal_input_light:active {
-
-}*/
-
-.terminal_fleshy {
-  filter: contrast(110%);
-  background-image: url(../resources/terminal_compressed.jpg);
+  width: 700px;
+  aspect-ratio: 8 / 9;
+  background-image: url("../resources/paper.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.terminal_fleshy:hover {
-  animation: pulse 1.5s ease-in-out infinite alternate;
+.terminal_light:hover {
   outline: none;
 }
 
-.terminal_output_fleshy {
-  color: #77ff00;
-  animation: glow 1s ease-in-out infinite alternate;
+.terminal_output_light {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  left: 50px;
+  top: 580px;
+  color: white;
   flex: 0.55;
 }
 
-.terminal_input_fleshy {
-  color: #77ff00;
-  animation: glow 1s ease-in-out infinite alternate;
+.terminal_input_light {
+  background-image: url("../resources/input_bar.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: black solid 1px;
+  color: white;
   font-family: "Jersey 10";
-  margin-bottom: -165px;
+  top: -620px;
+  left: 30px;
   border: none;
   background-color: transparent;
 }
 
-.glow {
-  color: #77ff00;
-  animation: glow 1s ease-in-out infinite alternate;
+.dragging {
+  animation: drag 1s infinite alternate;
 }
 
-@keyframes glow {
-  to {
-    text-shadow: 0 0 10px #6bfe26, 0 0 20px #9bfc24, 0 0 30px #7dcf30;
-  }
-  from {
-    text-shadow: 0 0 20px #537a34, 0 0 30px #86a635, 0 0 40px #616625;
-  }
-}
-
-@keyframes pulse {
-  to {
-    transform: scale(101%, 101%);
-    filter: contrast(130%);
-  }
-}
 
 @keyframes drag {
   0% {
@@ -184,14 +106,22 @@
   }
 }
 
-.body_dark {
-  background-color: black;
-}
-
 .body_light {
-  background-color: white;
+  background-image: url(../resources/windows.png);
+  background-repeat: repeat;
 }
 
-.body_fleshy {
-  background-color: black;
+.background {
+  color: white;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  text-wrap: wrap;
+  white-space: normal;
+  word-break: break-all;
+  overflow: hidden;
 }

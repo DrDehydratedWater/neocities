@@ -1,9 +1,8 @@
 import { Terminal } from "./lib/terminal.js";
 import { Draggable } from "./lib/draggable.js"
+import { ASCIIBackground } from "./lib/background.js";
 
 const themes = [
-  "fleshy",
-  "dark",
   "light"
 ]
 
@@ -21,7 +20,7 @@ let terminal = new Terminal(
       this.println("<i>[" + this.argv[0] + "]</i>");
       return;
     }
-    this.println("-------------------------------------------------------------<br><i>[" + this.argv[0] + "]</i>")
+    this.println("-------------------------------------<br><i>[" + this.argv[0] + "]</i>")
   },
   function invalid() {
     this.println("^^^ is not a valid command")
@@ -121,4 +120,37 @@ let terminal = new Terminal(
   }
 )
 
+
+// Make background draggable
 let draggable = new Draggable(document.getElementById("terminal"))
+
+
+// Fibonacci sequence in the background
+let f1 = BigInt("0");
+let f2 = BigInt("1");
+
+let buffer = "";
+
+let bg = new ASCIIBackground(document.getElementById("background"), 10000, function() {
+  if (buffer == "") {
+    let f3 = f1 + f2;
+    f1 = f2;
+    f2 = f3;
+    buffer += f2.toString().split("").reverse().join("") + ' ';
+  }
+  
+  
+  let el = this.container;
+  let newText = el.textContent;
+  if (newText.length >= 15500) {
+    el.textContent = "";
+    return;
+  }
+
+  newText += buffer[buffer.length - 1];
+  buffer = buffer.slice(0, -1);
+
+  el.textContent = newText;
+});
+
+bg.start();
