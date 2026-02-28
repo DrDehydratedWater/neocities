@@ -125,3 +125,7 @@
   word-break: break-all;
   overflow: hidden;
 }
+
+body {
+  overflow: hidden;
+}
