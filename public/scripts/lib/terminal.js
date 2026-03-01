@@ -1,5 +1,5 @@
-export class Terminal {
-  constructor(container, all, invalid, boot, options) {
+export class terminal {
+  constructor(container, all, invalid, boot, commands) {
     this.argv = []
 
 
@@ -9,11 +9,7 @@ export class Terminal {
     this.boot = boot;
     this.output = document.getElementById("terminal_output");
     this.input = document.getElementById("terminal_input");
-
-    this.commands = options.commands || {};
-    this.onUnknownCommand =
-      options.onUnknownCommand ||
-      ((cmd) => this.print(`Not a valid command: ${cmd}`));
+    this.commands = commands;
     
     this.init();
   }

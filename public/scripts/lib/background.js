@@ -1,4 +1,4 @@
-export class ASCIIBackground {
+export class ASCII_background {
   constructor(container, tps, expression) {
     this.container = container;
 

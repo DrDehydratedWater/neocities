@@ -1,4 +1,4 @@
-export class Draggable {
+export class draggable {
   constructor(element) {
     this.element = element;
 
@@ -6,26 +6,26 @@ export class Draggable {
   }
 
   init() {
-    let isDragging = false;
-    let offsetX, offsetY;
+    let is_dragging = false;
+    let offset_x, offset_y;
 
     this.element.addEventListener("mousedown", (e) => {
-      isDragging = true;
+      is_dragging = true;
       this.element.className = "dragging " + this.element.className;
-      offsetX = e.clientX - this.element.offsetLeft;
-      offsetY = e.clientY - this.element.offsetTop;
+      offset_x = e.clientX - this.element.offsetLeft;
+      offset_y = e.clientY - this.element.offsetTop;
       this.element.style.cursor = "grabbing";
     });
 
     document.addEventListener("mousemove", (e) => {
-      if (isDragging) {
-        this.element.style.left = e.clientX - offsetX + "px";
-        this.element.style.top = e.clientY - offsetY + "px";
+      if (is_dragging) {
+        this.element.style.left = e.clientX - offset_x + "px";
+        this.element.style.top = e.clientY - offset_y + "px";
       }
     });
 
     document.addEventListener("mouseup", () => {
-      isDragging = false;
+      is_dragging = false;
       this.element.classList.remove("dragging");
       this.element.style.cursor = "grab";
     });
