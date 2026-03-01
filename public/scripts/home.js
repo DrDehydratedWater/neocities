@@ -189,7 +189,7 @@ let t = new terminal(
 )
 
 
-// Make background draggable
+// Make the background draggable
 let d = new draggable(document.getElementById("terminal"))
 
 
