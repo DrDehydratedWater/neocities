@@ -109,12 +109,13 @@ const commands = {
         
         
         if (!img) {
-          this.println("No image to view");
+          this.println("No image to view, the current images in the gallery are:");
+          list_images.call(this);
           return;
         }
 
         if (!images.includes(img)) {
-          this.println("Image does not exist, images are:");
+          this.println("Image does not exist, the current images in the gallery are:");
           list_images.call(this);
           return;
         }
@@ -136,6 +137,21 @@ const commands = {
 
         viewer.close(img);
         this.println("Closed image");
+        break;
+      case "list":
+        this.println("The current images in the gallery are:");
+        list_images.call(this);
+        break;
+
+      default:
+        this.println(
+          `
+          This is an image viewer, arguments are:
+          <br>[view]
+          <br>[close]
+          <br>[list]
+          `
+        )
     }
   }
 }
