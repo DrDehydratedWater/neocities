@@ -1,19 +1,11 @@
 import { terminal } from "./lib/terminal.js";
 import { draggable } from "./lib/draggable.js"
 import { ASCII_background } from "./lib/background.js";
-import { music_player } from "./lib/music_player.js";
 
 const themes = [
   "light"
 ]
 
-const tracks = [
-  "lostandfound",
-  "bow",
-  "happy_distortion"
-]
-
-const player = new music_player();
 
 const commands = {
   help: function() {
@@ -101,65 +93,6 @@ const commands = {
       <br>- Video games (shooters, metroidvanias)
       `
     );
-  },
-
-  music: function() {
-    if (!this.argv[1]) {
-      this.println(
-        `
-        No argument specified, arguments are:
-        <br>- add
-        <br>- play
-        <br>- pause
-        <br>- clear
-        <br>- list
-        `
-      );
-      return;
-    }
-
-    switch (this.argv[1]) {
-      case "add":
-        if (!this.argv[2]) {
-          this.println("No track specified, list them with [music list]");
-          return;
-        }
-
-        if (!tracks.includes(this.argv[2])) {
-          this.println("There is no such track, list them with [music list]");
-          return;
-        }
-
-        player.add("../music/" + this.argv[2] + ".mp3");
-        this.println("Added track to queue");
-        break;
-      case "play":
-        if (player.queue.length < 1) {
-          this.println("Queue is empty");
-          return;
-        }
-        player.play();
-        this.println("Playing music");
-        break;
-      case "pause":
-        if (player.queue.length < 1) {
-          this.println("Queue is empty");
-          return;
-        }
-        player.pause();
-        this.println("Music paused");
-        break;
-      case "clear":
-        player.pause();
-        player.clear();
-        this.println("Queue cleared");
-        break;
-      case "list":
-        this.println("Available tracks are: ");
-        for (let track of tracks) {
-          this.println(track);
-        }
-    }
   }
 }
 
