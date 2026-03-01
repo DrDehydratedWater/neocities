@@ -9,6 +9,10 @@ export class draggable {
     let is_dragging = false;
     let offset_x, offset_y;
 
+    this.element.addEventListener("dragstart", (e) => {
+      e.preventDefault();
+    })
+
     this.element.addEventListener("mousedown", (e) => {
       is_dragging = true;
       this.element.className = "dragging " + this.element.className;

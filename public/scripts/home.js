@@ -1,9 +1,15 @@
 import { terminal } from "./lib/terminal.js";
 import { draggable } from "./lib/draggable.js"
 import { ASCII_background } from "./lib/background.js";
+import { image_viewer } from "./lib/image_viewer.js";
 
 const themes = [
   "light"
+]
+
+
+const images = [
+  "flowing_dress"
 ]
 
 
@@ -93,6 +99,44 @@ const commands = {
       <br>- Video games (shooters, metroidvanias)
       `
     );
+  },
+
+  img: function() {
+    const img = this.argv[2];
+
+    switch(this.argv[1]) {
+      case "view":
+        
+        
+        if (!img) {
+          this.println("No image to view");
+          return;
+        }
+
+        if (!images.includes(img)) {
+          this.println("Image does not exist, images are:");
+          list_images.call(this);
+          return;
+        }
+
+        viewer.view(img);
+        this.println("Created window for image");
+        break;
+
+      case "close":
+        if (!img) {
+          this.println("No image to close");
+          return;
+        }
+
+        if (!viewer.images.includes(img)) {
+          this.println("Image doesn't exist");
+          return;
+        }
+
+        viewer.close(img);
+        this.println("Closed image");
+    }
   }
 }
 
@@ -102,6 +146,15 @@ function list_themes() {
   }
   return;
 }
+
+function list_images() {
+  for (let img of images) {
+    this.println(img);
+  };
+  return;
+}
+
+let viewer = new image_viewer();
 
 let t = new terminal(
   document.getElementById("terminal"), 
