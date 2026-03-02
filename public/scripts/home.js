@@ -1,17 +1,16 @@
 import { terminal } from "./lib/terminal.js";
 import { draggable } from "./lib/draggable.js"
 import { ASCII_background } from "./lib/background.js";
-import { image_viewer } from "./lib/image_viewer.js";
 
 const themes = [
   "light"
 ]
 
-
-const images = [
-  "flowing_dress"
+const files = [
+  "gallery",
+  "computer",
+  "index"
 ]
-
 
 const commands = {
   help: function() {
@@ -22,8 +21,8 @@ const commands = {
       <br><br>Some useful commands are:
       <br>[help]  : You are here!
       <br>[list]  : Gives a list of commands
-      <br>[theme] : Takes one argument which is the theme you want.
-      <br>If ran without any arguments it lists them for you<br>
+      <br>[theme] [theme to switch to] : Changes css theme.
+      <br>[jmp] [file]   : Go to the html file at [file].
       `
     );
   },
@@ -101,58 +100,22 @@ const commands = {
     );
   },
 
-  img: function() {
-    const img = this.argv[2];
+  jmp: function() {
+    let file = this.argv[1];
 
-    switch(this.argv[1]) {
-      case "view":
-        
-        
-        if (!img) {
-          this.println("No image to view, the current images in the gallery are:");
-          list_images.call(this);
-          return;
-        }
-
-        if (!images.includes(img)) {
-          this.println("Image does not exist, the current images in the gallery are:");
-          list_images.call(this);
-          return;
-        }
-
-        viewer.view(img);
-        this.println("Created window for image");
-        break;
-
-      case "close":
-        if (!img) {
-          this.println("No image to close");
-          return;
-        }
-
-        if (!viewer.images.includes(img)) {
-          this.println("Image doesn't exist");
-          return;
-        }
-
-        viewer.close(img);
-        this.println("Closed image");
-        break;
-      case "list":
-        this.println("The current images in the gallery are:");
-        list_images.call(this);
-        break;
-
-      default:
-        this.println(
-          `
-          This is an image viewer, arguments are:
-          <br>[view]
-          <br>[close]
-          <br>[list]
-          `
-        )
+    if (!file) {
+      this.println("No file provided, files are:");
+      list_files.call(this);
+      return;
     }
+
+    if (!files.includes(file)) {
+      this.println("Not a valid file, files are:");
+      list_files.call(this);
+      return;
+    }
+
+    window.location.href = '../' + file;
   }
 }
 
@@ -163,14 +126,12 @@ function list_themes() {
   return;
 }
 
-function list_images() {
-  for (let img of images) {
-    this.println(img);
+function list_files() {
+  for (let file of files) {
+    this.println(file);
   };
   return;
 }
-
-let viewer = new image_viewer();
 
 let t = new terminal(
   document.getElementById("terminal"), 
@@ -212,7 +173,7 @@ let bg = new ASCII_background(document.getElementById("background"), 10000, func
   
   let el = this.container;
   let newText = el.textContent;
-  if (newText.length >= 15500) {
+  if (newText.length >= 20000) {
     el.textContent = "";
     return;
   }

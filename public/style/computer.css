@@ -11,3 +11,7 @@
   width: 68%;
   background-color: transparent;
 }
+
+* {
+  image-rendering: pixelated;
+}
