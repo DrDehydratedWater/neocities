@@ -1,3 +1,8 @@
+@font-face{
+  font-family: heroin;
+  src: url(../resources/Got_Heroin.ttf);
+}
+
 .container {
   position: absolute;
   top: 0px;
@@ -12,6 +17,7 @@
 .container img {
   z-index: 1;
   width: 20vw;
+  cursor: pointer;
 }
 
 /*.container img:hover {
@@ -45,23 +51,23 @@
 }
 
 .back_button {
-  filter: brightness(70%) contrast(1.5);
+  text-align: center;
+  font-size: 112px;
+  font-family: heroin;
   position: absolute;
-  top: 0px;
+  top: -12px;
   left: 40px;
-  width: 250px;
-  height: 124px;
-  background-image: url(../resources/back.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  width: 200px;
+  height: 125px;
   outline: none;
   z-index: 2;
+  cursor: pointer;
 }
 
 body {
   background-image: url(../resources/doors.png);
   background-repeat: repeat;
+  background-size: 183px;
 }
 
 * {
