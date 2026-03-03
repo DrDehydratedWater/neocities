@@ -15,23 +15,21 @@
 }
 
 .container img {
+  transition: transform 0.5s;
   z-index: 1;
   width: 20vw;
   cursor: pointer;
+  filter: drop-shadow(0 0 24px black);
 }
-
-/*.container img:hover {
-  z-index: 1;
-  transform: scale(1.1);
-}*/
 
 .clicked {
   z-index: 4 !important;
   position: absolute;
-  height: 100vh;
+  height: 99.8vh;
   width: auto !important;
   left: 50%;
   transform: translateX(-50%);
+  border: solid white 0.1vh;
 }
 
 .overlay {
@@ -51,20 +49,35 @@
 }
 
 .back_button {
+  color: firebrick;
   text-align: center;
+  text-shadow: 6px 6px 3px black;
   font-size: 112px;
   font-family: heroin;
   position: absolute;
-  top: -12px;
+  top: -10px;
   left: 40px;
-  width: 200px;
+  width: 230px;
   height: 125px;
   outline: none;
   z-index: 2;
   cursor: pointer;
+  background-image: url(../resources/doors.png);
+  background-size: 230px auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 24px black) brightness(200%);
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.back_button:hover {
+  color: red;
+  filter: drop-shadow(0 0 32px black) brightness(300%);
+  transform: scale(1.1) rotate(2deg);
 }
 
 body {
+  z-index: -1;
   background-image: url(../resources/doors.png);
   background-repeat: repeat;
   background-size: 183px;
