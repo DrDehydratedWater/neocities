@@ -1,0 +1,59 @@
+body {
+  background-image: url(../resources/paper_texture.png);
+  background-repeat: repeat;
+  background-size: 20vw;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  z-index: 0;
+  display: grid;
+  width: 50vw;
+  border: double 1vw blue;
+  padding: 1vw;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.content * {
+  margin: 0.6vw;
+}
+
+.content h1 {
+  z-index: 1;
+  color: blue;
+  font-size: 2vw;
+  text-transform: uppercase;
+  border-bottom: solid 1px blue;
+}
+
+.content ul {
+  z-index: 1;
+  padding-left: 2vw;
+  color: blue;
+  font-size: 1.5vw;
+  text-transform: lowercase;
+  list-style-type: square;
+}
+
+.insignia {
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  aspect-ratio: 1000 / 326;
+}
+
+
+.insignia_container {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0px;
+
+  width: 20vw;
+  aspect-ratio: 1000 / 326;
+  margin-top: 10vw;
+  margin-bottom: 1vw;
+}

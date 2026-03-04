@@ -9,7 +9,8 @@ const themes = [
 const files = [
   "gallery",
   "computer",
-  "index"
+  "index",
+  "todo"
 ]
 
 const commands = {
