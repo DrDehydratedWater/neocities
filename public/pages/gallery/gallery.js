@@ -1,5 +1,3 @@
-import { ASCII_background } from "./lib/background.js";
-
 let images = document.getElementsByTagName("img");
 
 for (let i = 0; i < images.length; i++) {
@@ -13,5 +11,5 @@ for (let i = 0; i < images.length; i++) {
 }
 
 document.getElementById("back_button").addEventListener("click", (e) => {
-  window.location.href = "home.html";
+  window.location.href = "../home/";
 })

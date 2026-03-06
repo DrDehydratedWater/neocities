@@ -1,5 +1,5 @@
 body {
-  background-image: url(../resources/paper_texture.png);
+  background-image: url(res/paper_texture.png);
   background-repeat: repeat;
   background-size: 20vw;
   display: flex;

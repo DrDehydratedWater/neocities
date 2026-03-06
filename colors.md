@@ -1,2 +1,0 @@
-#FAE2BF
-#4DA4FC

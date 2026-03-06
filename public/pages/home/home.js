@@ -1,6 +1,6 @@
-import { terminal } from "./lib/terminal.js";
-import { draggable } from "./lib/draggable.js"
-import { ASCII_background } from "./lib/background.js";
+import { terminal } from "../../shared/lib/terminal.js";
+import { draggable } from "../../shared/lib/draggable.js"
+import { ASCII_background } from "../../shared/lib/background.js";
 
 const themes = [
   "light"
@@ -8,8 +8,6 @@ const themes = [
 
 const files = [
   "gallery",
-  "computer",
-  "index",
   "todo"
 ]
 
@@ -116,7 +114,7 @@ const commands = {
       return;
     }
 
-    window.location.href = '../' + file;
+    window.location.href = '../' + file + "/";
   }
 }
 

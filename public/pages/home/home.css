@@ -59,7 +59,7 @@
 .terminal_light {
   width: 700px;
   aspect-ratio: 8 / 9;
-  background-image: url("../resources/paper.png");
+  background-image: url("res/paper.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -80,7 +80,7 @@
 }
 
 .terminal_input_light {
-  background-image: url("../resources/input_bar.png");
+  background-image: url("res/input_bar.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -111,7 +111,7 @@
 }
 
 .body_light {
-  background-image: url(../resources/windows.png);
+  background-image: url(res/windows.png);
   background-repeat: repeat;
 }
 
