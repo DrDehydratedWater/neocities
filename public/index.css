@@ -43,13 +43,6 @@ body {
   top: 100%;
 }
 
-.blink {
-  rotate: -3deg;
-  position: absolute;
-  left: 49.5%;
-  bottom: -56%;
-}
-
 * {
   image-rendering: pixelated;
 }
