@@ -6,6 +6,12 @@ body {
   justify-content: center;
 }
 
+.cursor {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}
+
 .content {
   z-index: 0;
   display: grid;

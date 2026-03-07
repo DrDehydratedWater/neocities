@@ -1,6 +1,9 @@
 import { terminal } from "../../shared/lib/terminal.js";
 import { draggable } from "../../shared/lib/draggable.js"
 import { ASCII_background } from "../../shared/lib/background.js";
+import { make_cursor } from "../../shared/lib/custom_cursor.js";
+
+make_cursor("cursor");
 
 const themes = [
   "light"

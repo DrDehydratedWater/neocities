@@ -14,11 +14,12 @@ export class draggable {
     })
 
     this.element.addEventListener("mousedown", (e) => {
+      if (e.target !== this.element) return;
+      
       is_dragging = true;
       this.element.className = "dragging " + this.element.className;
       offset_x = e.clientX - this.element.offsetLeft;
       offset_y = e.clientY - this.element.offsetTop;
-      this.element.style.cursor = "grabbing";
     });
 
     document.addEventListener("mousemove", (e) => {
@@ -31,7 +32,6 @@ export class draggable {
     document.addEventListener("mouseup", () => {
       is_dragging = false;
       this.element.classList.remove("dragging");
-      this.element.style.cursor = "grab";
     });
   }
 }

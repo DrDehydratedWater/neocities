@@ -1,3 +1,7 @@
+import { make_cursor } from "../../shared/lib/custom_cursor.js";
+
+make_cursor("cursor");
+
 let images = document.getElementsByTagName("img");
 
 for (let i = 0; i < images.length; i++) {

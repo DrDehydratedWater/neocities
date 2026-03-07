@@ -4,6 +4,12 @@ body {
   align-items: center;
 }
 
+.cursor {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}
+
 .door {
   position: absolute;
   left: 0px;
@@ -20,7 +26,6 @@ body {
   height: 200px;
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 
 .title {
@@ -44,5 +49,6 @@ body {
 }
 
 * {
+  cursor: none;
   image-rendering: pixelated;
 }

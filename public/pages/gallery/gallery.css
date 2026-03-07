@@ -12,6 +12,12 @@ overlay 0
   src: url(res/Got_Heroin.ttf);
 }
 
+.cursor {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}
+
 .container {
   position: absolute;
   top: 0px;
@@ -24,9 +30,9 @@ overlay 0
 }
 
 .container img {
+  transition: filter 0.5s, transform 0.5s;
   z-index: 1;
   width: 20vw;
-  cursor: pointer;
 }
 
 .container img:hover {
@@ -62,6 +68,7 @@ overlay 0
 }
 
 .back_button {
+  transition: filter 0.5s, transform 0.5s;
   color: firebrick;
   text-align: center;
   text-shadow: 6px 6px 3px black;
@@ -74,7 +81,6 @@ overlay 0
   height: 125px;
   outline: none;
   z-index: 3;
-  cursor: pointer;
   background-image: url(res/doors.png);
   background-size: 230px auto;
   background-position: bottom;
@@ -96,5 +102,6 @@ body {
 }
 
 * {
+  cursor: none;
   image-rendering: pixelated;
 }

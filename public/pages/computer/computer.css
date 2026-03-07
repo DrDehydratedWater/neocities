@@ -1,3 +1,9 @@
+.cursor {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}
+
 .computer {
   position: absolute;
   top: 0px;
@@ -16,5 +22,6 @@
 }
 
 * {
+  cursor: none;
   image-rendering: pixelated;
 }
