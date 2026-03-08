@@ -63,3 +63,7 @@ body {
   margin-top: 10vw;
   margin-bottom: 1vw;
 }
+
+* {
+  cursor: none;
+}

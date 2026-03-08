@@ -4,6 +4,15 @@ body {
   align-items: center;
 }
 
+.button {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 99;
+  width: 200px;
+  aspect-ratio: 88 / 33;
+}
+
 .cursor {
   position: absolute;
   z-index: 100;
@@ -14,14 +23,14 @@ body {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 100%;
+  width: 1920px;
   z-index: -1;
 }
 
 .door_button {
   position: absolute;
-  left: 47%;
-  bottom: -70%;
+  left: 902.4px;
+  bottom: -630px;
   width: 120px;
   height: 200px;
   background-color: transparent;
